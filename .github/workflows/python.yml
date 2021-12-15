@@ -1,9 +1,8 @@
 name: Action Sample
 
 on:
-  push:
-    branches: 
-      - master
+  issues:
+    types: [opened]
   workflow_dispatch:
 
 jobs:
