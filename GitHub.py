@@ -5,5 +5,7 @@ URL = 'https://api.github.com/repos/YUTOKUBO2001/testbot/contributors'
 r = requests.get(URL)
 r_json = r.json()
 
-print(r_json)
-print(r_json[0])
+if r_json[0]["contributions"] <= 1:
+  print("true")
+else:
+  print("false")
