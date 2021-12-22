@@ -1,6 +1,6 @@
 import requests
 
-URL = 'https://api.github.com/repos/YUTOKUBO2001/testbot/contributors'
-r = requests.get(URL)
-output = r.json()
+r = requests.get(input()).json()
+
+output = r
 print(f"RESULT_OUTPUT={output}")
