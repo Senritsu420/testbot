@@ -1,6 +1,6 @@
 import requests
 
-r = requests.get(input()).json()
+r = requests.get(input())
 
 output = r
 print(f"RESULT_OUTPUT={output}")
