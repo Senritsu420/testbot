@@ -1,6 +1,7 @@
 import requests
-
-r = requests.get(input())
+url = input()
+r = requests.get(url)
 
 output = r
-print(f"RESULT_OUTPUT={output}")
+print(r)
+<!-- (f"RESULT_OUTPUT={output}") -->
