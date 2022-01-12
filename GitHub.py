@@ -7,7 +7,6 @@ def get(url, headers):
     return result if result.ok else exit(-1)
 
 token = f'token {sys.argv[2]}'
-r = requests.get(sys.argv[1], {'Authorization': token})
-r_json = r.json
+r = requests.get(sys.argv[1], {'Authorization': token}).json()
 
-print(r_json.text)
+print(r)
