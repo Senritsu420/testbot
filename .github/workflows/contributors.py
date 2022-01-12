@@ -3,6 +3,7 @@ name: Check New Contributors
 on: pull_request:
     issues:
       types: [opened, reopened]
+    workflow_dispatch:
 
 jobs:
   welcome:
