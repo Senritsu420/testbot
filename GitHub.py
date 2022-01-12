@@ -8,4 +8,5 @@ def get(url, headers):
 
 token = f'token {sys.argv[2]}'
 r = requests.get(sys.argv[1], {'Authorization': token}).json
-print(r)
+
+print(f'このissueの情報は{r}です')
