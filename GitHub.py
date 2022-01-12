@@ -2,11 +2,11 @@ import requests
 import sys
 import json
 
-def get_issue(url, headers):
+def get(url, headers):
     result = requests.get(url, headers = headers)
     return result if result.ok else exit(-1)
 
 token = f'token {sys.argv[1]}'
-r = requests.get(sys.argv[2], {'Authorization': token})
+r = get(sys.argv[2], {'Authorization': token})
 
 print(r)
