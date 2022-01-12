@@ -7,6 +7,6 @@ def get_issue(url, headers):
     return result if result.ok else exit(-1)
 
 token = f'token {sys.argv[1]}'
-r = get_issue(sys.argv[2], {'Authorization': token}).json
+r = requests.get(sys.argv[2], {'Authorization': token})
 
 print(r)
