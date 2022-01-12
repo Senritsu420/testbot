@@ -17,4 +17,5 @@ jobs:
           python-version: '3.8'
           architecture: 'x64'
       - run: pip install -r requirements.txt
-      - run: python GitHub.py ${{ secrets.GITHUB_TOKEN }} ${{ github.event.issue.html_url }}
+      - run: echo ${{ github.event.issue.html_url }} >> input
+      - run: python GitHub.py < input
