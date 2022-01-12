@@ -9,4 +9,4 @@ def get(url, headers):
 token = f'token {sys.argv[2]}'
 r = get(sys.argv[1], {'Authorization': token}).json
 
-print(r)
+print(r.text)
