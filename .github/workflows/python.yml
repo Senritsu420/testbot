@@ -15,4 +15,13 @@ jobs:
           python-version: '3.8'
           architecture: 'x64'
       - run: pip install -r requirements.txt
-      - run: python GitHub.py ${{ github.event.issue.html_url }} ${{ secrets.GITHUB_TOKEN }}
+      - run: python GitHub.py ${{ github.event.issue.html_url }} ${{ secrets.GITHUB_TOKEN }} >> $GITHUB_ENV
+      - uses: actions/github-script@v5
+        with:
+          script: |
+            github.rest.issues.createComment({
+              issue_number: context.issue.number,
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              body: ${{ $GITHUB_ENV }}
+            })
