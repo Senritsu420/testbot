@@ -9,5 +9,5 @@ def get(url, headers):
 token = f'token {sys.argv[2]}'
 r = get(sys.argv[1], {'Authorization': token}).json()
 
-output = f"このIssue内のコメント数は{r['comments']}個です．"
+output = f"このIssueの設立者は{r['user']['login']}です．"
 print(f"RESULT_OUTPUT={output}")
