@@ -15,7 +15,7 @@ jobs:
           python-version: '3.8'
           architecture: 'x64'
       - run: pip install -r requirements.txt
-      - run: python GitHub.py ${{ github.event.issue.url }} ${{ secrets.GITHUB_TOKEN }} ${{ github.event.url }} > output
+      - run: python GitHub.py ${{ github.event.issue.url }} ${{ secrets.GITHUB_TOKEN }} > output
       - run: cat output >> $GITHUB_ENV
       - uses: actions/github-script@v5
         with:
