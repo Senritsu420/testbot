@@ -9,5 +9,5 @@ def get(url, headers):
 token = f'token {sys.argv[2]}'
 r = get(sys.argv[1], {'Authorization': token}).json()
 
-output = f"このリポジトリ内のIssue数は{r['open_issues']}です．"
+output = f"コメント数は{r['comments']}です．"
 print(f"RESULT_OUTPUT={output}")
