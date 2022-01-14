@@ -8,7 +8,7 @@ def get(url, headers):
 
 token = f'token {sys.argv[2]}'
 r = get(sys.argv[3], {'Authorization': token}).json()
-num_issue = r['open_issues_count']
+num_issue = r['comments']
 print(num_issue)
 
 output = 'BOOK OFFなのに本ねえじゃん！'
