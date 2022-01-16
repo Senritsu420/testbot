@@ -10,9 +10,9 @@ token = f'token {sys.argv[2]}'
 r = get(sys.argv[1], {'Authorization': token}).json()
 
 repo_url = r['repository_url']
-repo_json = open(repo_url, 'r')
+repos = get(repo_url, {'Authorization': token}).json()
 
-open_issues = repo_json['open_issues']
+open_issues = repos['open_issues']
 
 output = f"このリポジトリ内でopen中のIssue数は{open_issues}です．"
 print(f"RESULT_OUTPUT={output}")
