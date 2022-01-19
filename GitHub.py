@@ -9,10 +9,12 @@ def get(url, headers):
 token = f'token {sys.argv[2]}'
 r = get(sys.argv[1], {'Authorization': token}).json()
 
+issue_user = r['user']['login']
+
 repo_url = r['repository_url']
 repos = get(repo_url, {'Authorization': token}).json()
 
 open_issues = repos['open_issues']
 
-output = f"このリポジトリ内でopen中のIssue数は{open_issues}です．"
+output = f"このリポジトリ内でopen中のIssue数は{open_issues}です．　このIssueの著者は{issue_user}です．"
 print(f"RESULT_OUTPUT={output}")
