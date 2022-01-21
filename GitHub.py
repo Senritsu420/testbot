@@ -18,7 +18,7 @@ repo_contributor = repos['contributors_url']
 repo_cons = get(repo_contributor, {'Authorization': token}).json()
 
 
-contributors　= repo_cons[0]['login']
+contributors = repo_cons[0]['login']
 
 if issue_user == contributors:
     output = f"{issue_user}は初めての貢献者ではありません。"
