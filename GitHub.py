@@ -14,7 +14,14 @@ issue_user = r['user']['login']
 repo_url = r['repository_url']
 repos = get(repo_url, {'Authorization': token}).json()
 
-open_issues = repos['open_issues']
+repo_contributor = r['contributors_url']
+repo_cons = get(repo_contributor, {'Authorization': token}).json()
 
-output = f"このリポジトリ内でopen中のIssue数は{open_issues}です．　このIssueの著者は{issue_user}です．"
-print(f"RESULT_OUTPUT={output}")
+contributors = repo_cons['login']
+
+if issue_user == contributors:
+    output = f"{issue_user}は初めての貢献者ではありません。"
+    print(f"RESULT_OUTPUT={output}")
+else:
+    output = f"{issue_user}は初めての貢献者です。"
+    print(f"RESULT_OUTPUT={output}")
