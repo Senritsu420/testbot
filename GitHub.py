@@ -17,10 +17,11 @@ repos = get(repo_url, {'Authorization': token}).json()
 repo_contributor = repos['contributors_url']
 repo_cons = get(repo_contributor, {'Authorization': token}).json()
 
+contributors = []
+for i in range(len(repo_cons)):
+    contributors.append(repo_cons[0]['login'])
 
-contributors = repo_cons[0]['login']
-
-if issue_user == contributors:
+if issue_user in contributors:
     output = f"{issue_user}は初めての貢献者ではありません。"
     print(f"RESULT_OUTPUT={output}")
 else:
