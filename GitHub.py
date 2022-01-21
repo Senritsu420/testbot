@@ -14,7 +14,7 @@ issue_user = r['user']['login']
 repo_url = r['repository_url']
 repos = get(repo_url, {'Authorization': token}).json()
 
-repo_contributor = r['contributors_url']
+repo_contributor = repos['contributors_url']
 repo_cons = get(repo_contributor, {'Authorization': token}).json()
 
 contributors = repo_cons['login']
