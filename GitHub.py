@@ -1,7 +1,7 @@
 import requests
 import sys
 import json
-import koguchisan.py
+from testbot import koguchisan
 
 def get(url, headers):
     result = requests.get(url, headers = headers)
