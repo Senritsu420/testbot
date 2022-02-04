@@ -24,8 +24,11 @@ for i in range(len(repo_cons)):
 user_url = r['user']['url']
 user = get(user_url, {'Authorization': token}).json()
 
+user_events_url = user['events_url']
+events_fixed = user_events_url.replace("{/privacy}","")
+
 if issue_user in contributors:
-    output = f"{issue_user}は初めての貢献者ではありません。"
+    output = f"{issue_user}は初めての貢献者ではありません。{events_fixed}"
     print(f"RESULT_OUTPUT={output}")
 else:
     output = f"{issue_user}は初めての貢献者です。"
