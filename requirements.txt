@@ -1,8 +1,5 @@
 requests ~= 2.26.0
 pandas
 numpy
-DecisionTreeClassifier
-StratifiedKFold
-RandomForestClassifier
 pickle
 warnings
