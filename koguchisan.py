@@ -15,6 +15,6 @@ test = pd.DataFrame({ 'before_user_commits':[0,1,2],
 
 test = np.array([[10,8,7,7,7]])
 
-dt = pickle.load(open('/Users/yuto-k/lab_folder/LTC_prediction_model.binaryfile','rb'))
+dt = pickle.load(open('LTC_prediction_model.binaryfile','rb'))
 predict = dt.predict_proba(test)
 print(predict[:,1])
