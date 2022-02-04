@@ -11,12 +11,6 @@ r = get(sys.argv[1], {'Authorization': token}).json()
 
 issue_user = r['user']['login']
 
-issue_user_url = r['user']['url']
-user = get(issue_user_url, {'Authorization': token}).json()
-
-user_events = user['events_url']
-user_events_url = get(user_events, {'Authorization': token}).json()
-
 repo_url = r['repository_url']
 repos = get(repo_url, {'Authorization': token}).json()
 
