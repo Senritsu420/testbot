@@ -1,1 +1,9 @@
 requests ~= 2.26.0
+pandas
+numpy
+sklearn.tree
+DecisionTreeClassifier
+StratifiedKFold
+RandomForestClassifier
+pickle
+warnings
