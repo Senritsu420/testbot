@@ -11,6 +11,13 @@ r = get(sys.argv[1], {'Authorization': token}).json()
 
 issue_user = r['user']['login']
 
+issue_user_url = r['user']['url']
+user = get(issue_user_url, {'Authorization': token}).json()
+
+user_events = user['events_url']
+user_events_url = get(user_events, {'Authorization': token}).json()
+events = len(user_events_url)
+
 repo_url = r['repository_url']
 repos = get(repo_url, {'Authorization': token}).json()
 
@@ -20,10 +27,12 @@ repo_cons = get(repo_contributor, {'Authorization': token}).json()
 contributors = []
 for i in range(len(repo_cons)):
     contributors.append(repo_cons[0]['login'])
+    
+
 
 if issue_user in contributors:
-    output = f"{issue_user}は初めての貢献者ではありません。"
+    output = f"{issue_user}は初めての貢献者ではありません。今までの草は{events}です。"
     print(f"RESULT_OUTPUT={output}")
 else:
-    output = f"{issue_user}は初めての貢献者です。"
+    output = f"{issue_user}は初めての貢献者です。今までの草は{events}です。"
     print(f"RESULT_OUTPUT={output}")
