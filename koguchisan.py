@@ -19,4 +19,4 @@ def model():
 
   dt = pickle.load(open('LTC_prediction_model.binaryfile 2','rb'))
   predict = dt.predict_proba(test)
-  print(predict[:,1])
+  return predict[:,1]
