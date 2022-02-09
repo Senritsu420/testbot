@@ -1,7 +1,7 @@
 import requests
 import sys
 import json
-import koguchisan
+import LTCchecker
 import re
 
 def get(url, headers):
@@ -32,7 +32,7 @@ events_fixed = user_events_url.replace("{/privacy}","")
 user_events = get(events_fixed, {'Authorization': token}).json()
 length = len(user_events)
 
-result = koguchisan.model()[0]
+result = LTCchecker.model()[0]
 
 if issue_user in contributors:
     output = f"{issue_user}は初めての貢献者ではありません。"
