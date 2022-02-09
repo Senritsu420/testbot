@@ -17,6 +17,6 @@ def model():
 
   test = np.array([[10,8,7,7,7]])
 
-  dt = pickle.load(open('LTC_prediction_model.binaryfile','rb'))
+  dt = pickle.load(open('LTC_prediction_model.binaryfile 2','rb'))
   predict = dt.predict_proba(test)
   print(predict[:,1])
