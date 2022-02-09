@@ -36,7 +36,7 @@ result = koguchisan.model()[0]
 
 if issue_user in contributors:
     output = f"{issue_user}は初めての貢献者ではありません。"
-    print(f"RESULT_OUTPUT={type(result)}")
+    print(f"RESULT_OUTPUT={result}")
 else:
     output = f"{issue_user}は初めての貢献者です。{length}"
     print(f"RESULT_OUTPUT={output}")
