@@ -33,10 +33,10 @@ user_events = get(events_fixed, {'Authorization': token}).json()
 length = len(user_events)
 
 result = koguchisan.model()
-number = re.findall("\d", result)
+print(type(result))
 
 if issue_user in contributors:
-    output = f"{issue_user}は初めての貢献者ではありません。{number}"
+    output = f"{issue_user}は初めての貢献者ではありません。"
     print(f"RESULT_OUTPUT={output}")
 else:
     output = f"{issue_user}は初めての貢献者です。{length}"
