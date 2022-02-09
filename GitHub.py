@@ -2,6 +2,7 @@ import requests
 import sys
 import json
 import koguchisan
+import re
 
 def get(url, headers):
     result = requests.get(url, headers = headers)
@@ -31,8 +32,10 @@ events_fixed = user_events_url.replace("{/privacy}","")
 user_events = get(events_fixed, {'Authorization': token}).json()
 length = len(user_events)
 
+result = koguchisan.model()[0]
+
 if issue_user in contributors:
-    output = f"{issue_user}は初めての貢献者ではありません。{koguchisan.model()}"
+    output = f"{issue_user}は初めての貢献者ではありません。{result}"
     print(f"RESULT_OUTPUT={output}")
 else:
     output = f"{issue_user}は初めての貢献者です。{length}"
