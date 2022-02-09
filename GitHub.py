@@ -39,5 +39,5 @@ if issue_user in contributors:
     output = f"{issue_user}は初めての貢献者ではありません。"
     print(f"RESULT_OUTPUT={output}")
 else:
-    output = f"{issue_user}は初めての貢献者です。LTCになる確率は{result}です。"
+    output = f"{issue_user}は初めての貢献者です。LTCになる確率は{result_int}です。"
     print(f"RESULT_OUTPUT={output}")
