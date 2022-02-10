@@ -33,7 +33,7 @@ user_events = get(events_fixed, {'Authorization': token}).json()
 length = len(user_events)
 
 result = LTCchecker.model()[0]
-result_num = result.replace('0.', '')
+result_num = int(100 * result)
 
 if issue_user in contributors:
     output = f"{issue_user}は初めての貢献者ではありません。"
