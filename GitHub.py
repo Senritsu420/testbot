@@ -33,11 +33,11 @@ user_events = get(events_fixed, {'Authorization': token}).json()
 length = len(user_events)
 
 result = LTCchecker.model()[0]
-result_int = int(result) * 100
+result_num = result.replace('0.', '')
 
 if issue_user in contributors:
     output = f"{issue_user}は初めての貢献者ではありません。"
     print(f"RESULT_OUTPUT={output}")
 else:
-    output = f"{issue_user}は初めての貢献者です。LTCになる確率は{str(result_int)}です。"
+    output = f"{issue_user}は初めての貢献者です。LTCになる確率は{result_num}%です。"
     print(f"RESULT_OUTPUT={output}")
