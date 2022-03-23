@@ -29,7 +29,7 @@ def model():
   issue_user = r['user']['url']
   user = get(issue_user, {'Authorization': token}).json()
   
-  events = issue_user['events_url']
+  events = user['events_url']
   events_fixed = events.replace("{/privacy}","")
   user_events = get(events_fixed, {'Authorization': token}).json()
   
