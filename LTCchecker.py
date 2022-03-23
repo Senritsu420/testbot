@@ -34,14 +34,17 @@ def model():
   user_events = get(events_fixed, {'Authorization': token}).json()
   
   commits = 0
+  create_is = 0
   pr = 0
   for event in user_events:
     if event['type'] == 'PushEvent':
       commits = commits + 1
+    elif event['type'] == 'CreateEvent':
+      create_is = create_is + 1
     elif event['type'] == 'PullRequestEvent':
       pr = pr + 1
 
-  test = np.array([[commits,8,pr,7,7]])
+  test = np.array([[commits,create_is,pr,7,7]])
 
   dt = pickle.load(open('LTC_prediction_model.binaryfile 2','rb'))
   predict = dt.predict_proba(test)
