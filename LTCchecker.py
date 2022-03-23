@@ -26,7 +26,7 @@ def model():
   token = f'token {sys.argv[2]}'
   r = get(sys.argv[1], {'Authorization': token}).json()
   
-  issue_user = r['user']['login']
+  issue_user = r['user']['url']
   user = get(issue_user, {'Authorization': token}).json()
   
   events = issue_user['events_url']
