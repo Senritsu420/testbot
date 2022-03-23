@@ -10,6 +10,10 @@ import sys
 import json
 import re
 
+def get(url, headers):
+  result = requests.get(url, headers = headers)
+  return result if result.ok else exit(-1)
+
 def model():
   warnings.simplefilter('ignore', UserWarning)
 
@@ -18,10 +22,6 @@ def model():
                         'before_user_pull_requests':[0,1,2],
                         'before_user_comment_issue':[0,1,2],
                         'before_user_comment_pull_request':[0,1,2]})
-  
-  def get(url, headers):
-    result = requests.get(url, headers = headers)
-    return result if result.ok else exit(-1)
 
   token = f'token {sys.argv[2]}'
   r = get(sys.argv[1], {'Authorization': token}).json()
